@@ -79,19 +79,6 @@ impl UserDetails {
         }
     }
 
-    fn calculate_recommended_calories(&mut self) {
-        let daily_calories = self.calculate_tdee();
-        match self.weight_goal {
-            WeightGoal::LoseWeight => {
-                self.recommended_calories = daily_calories - (daily_calories as f32 * 0.2) as u16
-            }
-            WeightGoal::MaintainWeight => self.recommended_calories = daily_calories,
-            WeightGoal::GainWeight => {
-                self.recommended_calories = daily_calories + (daily_calories as f32 * 0.2) as u16
-            }
-        }
-    }
-
     /**
      * Total Daily Energy Expenditure
      * The number of calories your particular body burns in a day based on activity level.
@@ -102,6 +89,19 @@ impl UserDetails {
             ActivityLevel::LightActivity => (self.calculate_ree() as f32 * 1.375) as u16,
             ActivityLevel::ModerateActivity => (self.calculate_ree() as f32 * 1.55) as u16,
             ActivityLevel::VeryActive => (self.calculate_ree() as f32 * 1.725) as u16,
+        }
+    }
+
+    fn calculate_recommended_calories(&mut self) {
+        let daily_calories = self.calculate_tdee();
+        match self.weight_goal {
+            WeightGoal::LoseWeight => {
+                self.recommended_calories = daily_calories - (daily_calories as f32 * 0.2) as u16
+            }
+            WeightGoal::MaintainWeight => self.recommended_calories = daily_calories,
+            WeightGoal::GainWeight => {
+                self.recommended_calories = daily_calories + (daily_calories as f32 * 0.2) as u16
+            }
         }
     }
 }
