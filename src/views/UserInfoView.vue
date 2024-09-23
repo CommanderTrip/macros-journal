@@ -27,10 +27,11 @@ watch(age, (newAge, oldAge) => {
             </div>
         </fieldset>
 
-        <form @submit.prevent="">
+      <fieldset>
+        <legend>Who...are you?</legend>
+        <input type="number" min="0" max="100" placeholder="Age" :value="age" required/>
 
-            <input type="number" min="0" max="100" placeholder="Age" :value="age" required/>
-            
-        </form>
+      </fieldset>
+
     </div>
 </template>

@@ -46,7 +46,7 @@ fn fat_breakdown(user: &mut UserDetails) -> [u16; 2] {
 }
 
 /**
- * How much carborhydrate to consume.
+ * How much carbohydrate to consume.
  * 1g of Carbs = 4 Calories
  */
 fn carbohydrate_breakdown(user: &mut UserDetails, allocated_calories: u16) -> [u16; 2] {

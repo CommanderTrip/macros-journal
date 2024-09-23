@@ -22,6 +22,6 @@ import { RouterLink } from 'vue-router';
     </div>
 </template>
 
-<style lang="scss">
+<style scoped lang="scss">
 
 </style>
