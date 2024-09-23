@@ -7,7 +7,6 @@ import {store} from "../store";
     <p>Age: {{ store.age }}</p>
     <p>Hi from REE</p>
   </div>
-
 </template>
 
 <style scoped lang="scss">

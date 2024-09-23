@@ -1,8 +1,8 @@
 import { createMemoryHistory, createRouter } from 'vue-router';
 
 import App from "./App.vue";
-import UserInfoView from "./views/UserInfoView.vue";
-import GettingStartedView from './views/GettingStartedView.vue';
+import UserInfoView from "./components/UserInfo.vue";
+import GettingStartedView from './components/GettingStarted.vue';
 
 const routes = [
     { path: "/GettingStarted", component: GettingStartedView },

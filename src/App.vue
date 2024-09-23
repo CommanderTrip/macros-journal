@@ -3,11 +3,13 @@
 import {store} from "./store.js";
 
 import ProgressionNav from "./components/ProgressionNav.vue";
+import UserInfoView from "./components/UserInfo.vue";
 import REE from "./components/REE.vue";
 import TDEE from "./components/TDEE.vue";
 import Goal from "./components/Goal.vue";
 import Calories from "./components/Calories.vue";
 import Macros from "./components/Macros.vue";
+import GettingStarted from "./components/GettingStarted.vue";
 
 function resetStore() {
   store.index = 0
@@ -15,23 +17,24 @@ function resetStore() {
 </script>
 
 <template>
+  <ProgressionNav />
   <main>
-    <ProgressionNav />
-    <RouterView />
-  </main>
-  <div v-if="$route.fullPath === '/'">
     <div class="welcome">
       <h1>Macronutrients Calculator</h1>
+      <GettingStarted />
       <p>Index {{store.index}}</p>
-      <button @click="store.index++">Let's get started!</button>
     </div>
-    <REE class="transition-in" v-if="store.index > 0"/>
-    <TDEE class="transition-in" v-if="store.index > 1"/>
-    <Goal class="transition-in" v-if="store.index > 2"/>
-    <Calories class="transition-in" v-if="store.index > 3"/>
-    <Macros class="transition-in" v-if="store.index > 4"/>
 
-  </div>
+    <UserInfoView class="transition-in" v-if="store.index > 0"/>
+    <REE class="transition-in" v-if="store.index > 1"/>
+    <TDEE class="transition-in" v-if="store.index > 2"/>
+    <Goal class="transition-in" v-if="store.index > 3"/>
+    <Calories class="transition-in" v-if="store.index > 4"/>
+    <Macros class="transition-in" v-if="store.index > 5"/>
+
+    <button @click="store.index++">Next</button>
+  </main>
+
   <footer>
     <button @click="resetStore">restart</button>
   </footer>
@@ -39,17 +42,19 @@ function resetStore() {
 
 <style>
 html {
-  width: 100%;
-  height: 100%;
-  background-image: linear-gradient(-45deg, #1E90FF, #00CED1);
+  width: 100vw;
+  min-height: 100vh;
+  background: linear-gradient(-45deg, #1E90FF, #00CED1);
+  background-size: cover;
 }
 
 body {
-  margin-inline: 2rem;
+  margin: 0 ;
 }
 
 main {
   display: flex;
+  min-height: 100vh;
   flex-direction: column;
   margin-inline: 15%;
 }
@@ -92,7 +97,7 @@ main {
   }
 }
 footer {
-  position: absolute;
+  position: sticky;
   bottom: 0;
 }
 
@@ -109,8 +114,8 @@ footer {
 .transition-in {
   position: absolute;
   bottom: -100px;
-  animation: fadeInAndMoveUp 1s forwards;
-  animation-timing-function: ease-in;
+  animation: fadeInAndMoveUp 0.7s forwards;
+  animation-timing-function: ease-out;
 }
 
 @keyframes fadeInAndMoveUp {

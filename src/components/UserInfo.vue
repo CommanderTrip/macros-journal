@@ -11,6 +11,7 @@ watch(age, (newAge, oldAge) => {
 </script>
 
 <template>
+  <div>
     <h1>Your Measurements</h1>
     <div>
         <fieldset>
@@ -34,4 +35,5 @@ watch(age, (newAge, oldAge) => {
       </fieldset>
 
     </div>
+  </div>
 </template>

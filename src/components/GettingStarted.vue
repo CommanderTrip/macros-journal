@@ -1,12 +1,5 @@
-<script setup>
-
-import { RouterLink } from 'vue-router';
-
-</script>
-
 <template>
     <div>
-        <h1>Macro Calculator</h1>
         <p>Breaking down your macros comes down to 5 steps:</p>
         <ol>
             <li>Calculating your Resting Energy Expenditure (REE)</li>
@@ -15,13 +8,6 @@ import { RouterLink } from 'vue-router';
             <li>Breaking down your recommended daily Calories</li>
             <li>Breaking down your recommended <em>Macronutrients</em> from the Calories</li>
         </ol>
-        <div>
-            <p>Let's start by first getting your measurements!</p>
-            <RouterLink to="/user"><button>Next</button></RouterLink>
-        </div>
+        <p>Let's start by first getting your measurements!</p>
     </div>
 </template>
-
-<style scoped lang="scss">
-
-</style>
