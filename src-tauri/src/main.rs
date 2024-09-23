@@ -13,6 +13,8 @@ fn greet(name: &str) -> String {
     format!("Hello, {}! You've been greeted from Rust!", name)
 }
 
+
+
 fn main() {
     let mut user = UserDetails::new(
         67,

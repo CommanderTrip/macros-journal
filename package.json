@@ -15,10 +15,11 @@
     "vue-router": "^4.4.5"
   },
   "devDependencies": {
+    "@tauri-apps/cli": "^1",
     "@vitejs/plugin-vue": "^5.0.5",
+    "sass-embedded": "^1.79.3",
     "typescript": "^5.2.2",
     "vite": "^5.3.1",
-    "vue-tsc": "^2.0.22",
-    "@tauri-apps/cli": "^1"
+    "vue-tsc": "^2.0.22"
   }
 }

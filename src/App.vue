@@ -1,19 +1,37 @@
 <script setup>
 
-import { RouterLink, RouterView } from 'vue-router';
-import HomeView from './views/HomeView.vue';
+import { RouterView, RouterLink } from 'vue-router';
+import ProgressionNav from "./components/ProgressionNav.vue";
 
 </script>
 
 <template>
-  <div class="container">
-    <RouterLink to="/home">Home</RouterLink>
-    <RouterLink to="/user">User</RouterLink>
-  </div>
   <main>
-    <RouterView/>
+    <ProgressionNav />
+    <RouterView />
   </main>
+  <div v-if="$route.fullPath === '/'">
+    <div class="welcome">
+      <h1>Welcome to the Macronutrients Calculator!</h1>
+      <RouterLink to="/gettingstarted"><button>Let's get started!</button></RouterLink>
+    </div>
+  </div>
+  <footer>
+    <RouterLink to="/">restart</RouterLink>
+  </footer>
 </template>
+
+<style>
+html {
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(-45deg, #1E90FF, #00CED1);
+}
+
+body {
+  margin-inline: 2rem;
+}
+</style>
 
 <style scoped>
 :root {
@@ -51,5 +69,18 @@ import HomeView from './views/HomeView.vue';
     background-color: #0f0f0f69;
   }
 }
+footer {
+  position: absolute;
+  bottom: 0;
+}
 
+.welcome {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  button {
+    font-size: large;
+  }
+}
 </style>
