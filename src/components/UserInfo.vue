@@ -1,13 +1,7 @@
 <script setup>
-import {watch, ref} from "vue";
 import {store} from "../store.js";
 
-// const age = ref(0);
-//
-// watch(age, (newAge, oldAge) => {
-//     console.log(oldAge);
-//     console.log(newAge);
-// });
+
 
 </script>
 

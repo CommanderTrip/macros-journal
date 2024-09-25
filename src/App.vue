@@ -12,7 +12,7 @@ import Macros from "./components/Macros.vue";
 import GettingStarted from "./components/GettingStarted.vue";
 
 function resetStore() {
-  store.index = 0
+  store.index = steps.GREET
 }
 </script>
 
@@ -25,12 +25,12 @@ function resetStore() {
       <p>Index {{store.index}}</p>
     </div>
 
-    <UserInfoView class="transition-in" v-if="store.index > steps.YOU"/>
-    <REE class="transition-in" v-if="store.index > steps.REE"/>
-    <TDEE class="transition-in" v-if="store.index > steps.TDEE"/>
-    <Goal class="transition-in" v-if="store.index > steps.GOAL"/>
-    <Calories class="transition-in" v-if="store.index > steps.CALORIES"/>
-    <Macros class="transition-in" v-if="store.index > steps.MACROS"/>
+    <UserInfoView class="transition-in" v-if="store.index > steps.GREET"/>
+    <REE class="transition-in" v-if="store.index > steps.YOU"/>
+    <TDEE class="transition-in" v-if="store.index > steps.REE"/>
+    <Goal class="transition-in" v-if="store.index > steps.TDEE"/>
+    <Calories class="transition-in" v-if="store.index > steps.GOAL"/>
+    <Macros class="transition-in" v-if="store.index > steps.CALORIES"/>
 
     <button @click="nextStep(store.index)">Next</button>
   </main>

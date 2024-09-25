@@ -1,14 +1,14 @@
 <script setup lang="ts">
 
 import {store, steps} from "../store";
-import {s} from "vite/dist/node/types.d-aGj9QkWt.js";
 </script>
 
 <template>
+  <!-- FIXME: Nav icons do not resize on the desktop version -->
   <nav>
     <div class="nav-item" :class="{'selected': store.index == steps.YOU}">
       <span class="material-symbols-outlined">person</span>
-      <lable>You</lable>
+      <label>You</label>
     </div>
     <div class="nav-item" :class="{'selected': store.index == steps.REE }">
       <span class="material-symbols-outlined">hotel</span>

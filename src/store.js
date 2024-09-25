@@ -2,6 +2,7 @@
 import { reactive } from 'vue'
 
 export const steps = Object.freeze({
+    GREET: 0,
     YOU: 1,
     REE: 2,
     TDEE: 3,
@@ -11,13 +12,16 @@ export const steps = Object.freeze({
 })
 
 export const store = reactive({
-    index: steps.YOU,
+    index: steps.GREET,
     units: "",
     age: 0
 })
 
 export const nextStep = (index) => {
     switch (index) {
+        case steps.GREET:
+            store.index = steps.YOU
+            break
         case steps.YOU:
             store.index = steps.REE
             break
