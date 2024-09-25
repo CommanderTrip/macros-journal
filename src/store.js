@@ -1,20 +1,17 @@
 // store.js
-import { reactive } from 'vue'
-
-export const steps = Object.freeze({
-    GREET: 0,
-    YOU: 1,
-    REE: 2,
-    TDEE: 3,
-    GOAL: 4,
-    CALORIES: 5,
-    MACROS: 6
-})
+import {reactive} from 'vue'
+import {ActivityLevel, Gender, ReeFormula, steps, Units, WeightGoal} from "./enums.js";
 
 export const store = reactive({
     index: steps.GREET,
-    units: "",
-    age: 0
+    units: Units.Imperial,
+    age: null,
+    weight: null,
+    height: null,
+    gender: Gender.Male,
+    activityLevel: ActivityLevel.LightActivity,
+    weightGoal: WeightGoal.LoseWeight,
+    reeFormula: ReeFormula.MifflinStJeor,
 })
 
 export const nextStep = (index) => {
