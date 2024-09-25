@@ -1,12 +1,13 @@
-<script>
+<script setup>
 import {watch, ref} from "vue";
+import {store} from "../store.js";
 
-const age = ref(0);
-
-watch(age, (newAge, oldAge) => {
-    console.log(oldAge);
-    console.log(newAge);
-});
+// const age = ref(0);
+//
+// watch(age, (newAge, oldAge) => {
+//     console.log(oldAge);
+//     console.log(newAge);
+// });
 
 </script>
 
@@ -18,19 +19,30 @@ watch(age, (newAge, oldAge) => {
             <legend>What units would you prefer?</legend>
 
             <div>
-                <input type="radio" id="imperial" name="units" value="imperial"/>
+                <input type="radio" id="imperial" name="units" value="imperial" v-model="store.units"/>
                 <label for="imperial">Imperial</label>
             </div>
      
             <div>
-                <input type="radio" id="metric" name="units" value="metric"/>
+                <input type="radio" id="metric" name="units" value="metric" v-model="store.units"/>
                 <label for="metric">Metric</label>   
             </div>
         </fieldset>
 
       <fieldset>
         <legend>Who...are you?</legend>
-        <input type="number" min="0" max="100" placeholder="Age" :value="age" required/>
+        <label for="age">Age</label>
+        <input name="age" type="number" min="0" max="100" v-model="store.age" />
+
+        <div v-if="store.units === 'imperial'">
+          <p>imperial</p>
+        </div>
+        <div v-else>
+          <p>metric</p>
+        </div>
+
+
+
 
       </fieldset>
 

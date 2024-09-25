@@ -1,6 +1,6 @@
 <script setup>
 
-import {store} from "./store.js";
+import {store, nextStep, steps} from "./store.js";
 
 import ProgressionNav from "./components/ProgressionNav.vue";
 import UserInfoView from "./components/UserInfo.vue";
@@ -25,14 +25,14 @@ function resetStore() {
       <p>Index {{store.index}}</p>
     </div>
 
-    <UserInfoView class="transition-in" v-if="store.index > 0"/>
-    <REE class="transition-in" v-if="store.index > 1"/>
-    <TDEE class="transition-in" v-if="store.index > 2"/>
-    <Goal class="transition-in" v-if="store.index > 3"/>
-    <Calories class="transition-in" v-if="store.index > 4"/>
-    <Macros class="transition-in" v-if="store.index > 5"/>
+    <UserInfoView class="transition-in" v-if="store.index > steps.YOU"/>
+    <REE class="transition-in" v-if="store.index > steps.REE"/>
+    <TDEE class="transition-in" v-if="store.index > steps.TDEE"/>
+    <Goal class="transition-in" v-if="store.index > steps.GOAL"/>
+    <Calories class="transition-in" v-if="store.index > steps.CALORIES"/>
+    <Macros class="transition-in" v-if="store.index > steps.MACROS"/>
 
-    <button @click="store.index++">Next</button>
+    <button @click="nextStep(store.index)">Next</button>
   </main>
 
   <footer>

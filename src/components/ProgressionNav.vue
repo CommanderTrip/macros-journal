@@ -1,31 +1,32 @@
 <script setup lang="ts">
 
-import {store} from "../store";
+import {store, steps} from "../store";
+import {s} from "vite/dist/node/types.d-aGj9QkWt.js";
 </script>
 
 <template>
   <nav>
-    <div class="nav-item" :class="{'selected': store.index == 1 }">
+    <div class="nav-item" :class="{'selected': store.index == steps.YOU}">
       <span class="material-symbols-outlined">person</span>
       <lable>You</lable>
     </div>
-    <div class="nav-item" :class="{'selected': store.index == 2 }">
+    <div class="nav-item" :class="{'selected': store.index == steps.REE }">
       <span class="material-symbols-outlined">hotel</span>
       <label>REE</label>
     </div>
-    <div class="nav-item" :class="{'selected': store.index == 3 }">
+    <div class="nav-item" :class="{'selected': store.index == steps.TDEE }">
       <span class="material-symbols-outlined">exercise</span>
       <label>TDEE</label>
     </div>
-    <div class="nav-item" :class="{'selected': store.index == 4 }">
+    <div class="nav-item" :class="{'selected': store.index == steps.GOAL }">
       <span class="material-symbols-outlined">flag</span>
       <label>Goal</label>
     </div>
-    <div class="nav-item" :class="{'selected': store.index == 5 }">
+    <div class="nav-item" :class="{'selected': store.index == steps.CALORIES }">
       <span class="material-symbols-outlined">calculate</span>
       <label>Calories</label>
     </div>
-    <div class="nav-item" :class="{'selected': store.index == 6 }">
+    <div class="nav-item" :class="{'selected': store.index == steps.MACROS }">
       <span class="material-symbols-outlined">donut_large</span>
       <label>Macros</label>
     </div>
