@@ -3,7 +3,9 @@
 </script>
 
 <template>
-  <p>Hi from Calories</p>
+  <fieldset>
+    <legend>Calories Breakdown</legend>
+  </fieldset>
 </template>
 
 <style scoped lang="scss">

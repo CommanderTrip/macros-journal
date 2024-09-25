@@ -3,7 +3,9 @@
 </script>
 
 <template>
-  <p>Hi from Goals</p>
+  <fieldset>
+    <legend>Weight Goals</legend>
+  </fieldset>
 </template>
 
 <style scoped lang="scss">

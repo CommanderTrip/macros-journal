@@ -3,7 +3,9 @@
 </script>
 
 <template>
-  <p>Hi from Macros</p>
+  <fieldset>
+    <legend>Macros Breakdown</legend>
+  </fieldset>
 </template>
 
 <style scoped lang="scss">

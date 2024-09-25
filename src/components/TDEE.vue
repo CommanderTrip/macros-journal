@@ -1,3 +1,5 @@
 <template>
-  <p>Hi from TDEE</p>
+  <fieldset>
+    <legend>Total Daily Energy Expenditure</legend>
+  </fieldset>
 </template>
