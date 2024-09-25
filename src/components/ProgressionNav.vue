@@ -1,32 +1,33 @@
 <script setup lang="ts">
 
-import {store, steps} from "../store";
+import {store} from "../store";
+import {steps} from "../enums";
 </script>
 
 <template>
   <!-- FIXME: Nav icons do not resize on the desktop version -->
   <nav>
-    <div class="nav-item" :class="{'selected': store.index == steps.YOU}">
+    <div class="nav-item" :class="{'selected': store.index === steps.YOU}">
       <span class="material-symbols-outlined">person</span>
       <label>You</label>
     </div>
-    <div class="nav-item" :class="{'selected': store.index == steps.REE }">
+    <div class="nav-item" :class="{'selected': store.index === steps.REE }">
       <span class="material-symbols-outlined">hotel</span>
       <label>REE</label>
     </div>
-    <div class="nav-item" :class="{'selected': store.index == steps.TDEE }">
+    <div class="nav-item" :class="{'selected': store.index === steps.TDEE }">
       <span class="material-symbols-outlined">exercise</span>
       <label>TDEE</label>
     </div>
-    <div class="nav-item" :class="{'selected': store.index == steps.GOAL }">
+    <div class="nav-item" :class="{'selected': store.index === steps.GOAL }">
       <span class="material-symbols-outlined">flag</span>
       <label>Goal</label>
     </div>
-    <div class="nav-item" :class="{'selected': store.index == steps.CALORIES }">
+    <div class="nav-item" :class="{'selected': store.index === steps.CALORIES }">
       <span class="material-symbols-outlined">calculate</span>
       <label>Calories</label>
     </div>
-    <div class="nav-item" :class="{'selected': store.index == steps.MACROS }">
+    <div class="nav-item" :class="{'selected': store.index === steps.MACROS }">
       <span class="material-symbols-outlined">donut_large</span>
       <label>Macros</label>
     </div>

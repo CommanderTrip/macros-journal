@@ -2,6 +2,29 @@
 
 import {store} from "../../store";
 import {Gender, Units} from "../../enums";
+import {reactive, ref} from "vue";
+
+const imperialWeight = ref(null);
+const imperialHeight = reactive({
+  feet: null,
+  inches: null
+});
+
+function convertAndStoreImperialMajorHeight() {
+  store.height = imperialHeight.feet * 30.48
+  convertAndStoreImperialMinorHeight()
+}
+
+function convertAndStoreImperialMinorHeight() {
+  if (imperialHeight.inches === null) return
+  store.height = store.height + imperialHeight.inches * 2.54
+}
+
+function convertAndStoreImperialWeight() {
+  store.weight = imperialWeight.value * 0.4535924;
+}
+
+// TODO: Add validation that all input as a value
 </script>
 
 <template>
@@ -23,11 +46,21 @@ import {Gender, Units} from "../../enums";
     <section>
       <label>Gender</label>
       <div>
-        <input type="radio" id="male" value="{{Gender.Male}}" v-model="store.gender"/>
+        <input
+            type="radio"
+            id="male"
+            :value="Gender.Male"
+            v-model="store.gender"
+        />
         <label for="male">Male</label>
       </div>
       <div>
-        <input type="radio" id="female" value="{{Gender.Female}}" v-model="store.gender"/>
+        <input
+            type="radio"
+            id="female"
+            :value="Gender.Female"
+            v-model="store.gender"
+        />
         <label for="female">Female</label>
       </div>
     </section>
@@ -40,17 +73,24 @@ import {Gender, Units} from "../../enums";
             min="0"
             max="1000"
             placeholder="feet"
+            v-model="imperialHeight.feet"
+            @change="convertAndStoreImperialMajorHeight"
         />
         <input type="number"
                min="0"
                max="11"
-               placeholder="inches"/>
+               placeholder="inches"
+               v-model="imperialHeight.inches"
+               @change="convertAndStoreImperialMinorHeight"
+        />
       </div>
       <div v-else>
         <input type="number"
                min="0"
                max="1000"
-               placeholder="centimeters"/>
+               placeholder="centimeters"
+               v-model="store.height"
+        />
       </div>
     </section>
 
@@ -63,13 +103,17 @@ import {Gender, Units} from "../../enums";
             min="0"
             max="1000"
             placeholder="pounds"
+            v-model="imperialWeight"
+            @change="convertAndStoreImperialWeight"
         />
       </div>
       <div v-else>
         <input
             name="weight"
             type="number"
-            placeholder="kilograms"/>
+            placeholder="kilograms"
+            v-model="store.weight"
+        />
       </div>
     </section>
   </fieldset>

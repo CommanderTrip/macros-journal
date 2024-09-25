@@ -1,6 +1,6 @@
 <script setup>
 
-import {store, nextStep, steps} from "./store.js";
+import {store, nextStep} from "./store.js";
 
 import ProgressionNav from "./components/ProgressionNav.vue";
 import UserInfoView from "./components/UserInfo.vue";
@@ -10,6 +10,7 @@ import Goal from "./components/Goal.vue";
 import Calories from "./components/Calories.vue";
 import Macros from "./components/Macros.vue";
 import GettingStarted from "./components/GettingStarted.vue";
+import {steps} from "./enums.js";
 
 function resetStore() {
   store.index = steps.GREET
@@ -17,12 +18,12 @@ function resetStore() {
 </script>
 
 <template>
-  <ProgressionNav />
+  <ProgressionNav/>
   <main>
     <div class="welcome">
       <h1>Macronutrients Calculator</h1>
-      <GettingStarted />
-      <p>Index {{store.index}}</p>
+      <GettingStarted/>
+      <p>Index {{ store.index }}</p>
     </div>
 
     <UserInfoView class="transition-in" v-if="store.index > steps.GREET"/>
@@ -49,7 +50,7 @@ html {
 }
 
 body {
-  margin: 0 ;
+  margin: 0;
 }
 
 main {
@@ -92,10 +93,12 @@ main {
     color: #ffffff;
     background-color: #0f0f0f98;
   }
+
   button:active {
     background-color: #0f0f0f69;
   }
 }
+
 footer {
   position: sticky;
   bottom: 0;
