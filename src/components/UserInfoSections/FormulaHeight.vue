@@ -3,20 +3,23 @@
 import {store} from "../../store";
 import {Units} from "../../enums";
 import {reactive} from "vue";
+import {invoke} from "@tauri-apps/api/tauri";
 
 const imperialHeight = reactive({
   feet: null,
   inches: null
 });
 
-function convertAndStoreImperialMajorHeight() {
-  store.height = (imperialHeight.feet * 30.48).toFixed(0)
-  convertAndStoreImperialMinorHeight()
-}
+function convertAndStoreImperialHeight() {
+  let feet = Number(imperialHeight.feet)
+  let inches = Number(imperialHeight.inches)
 
-function convertAndStoreImperialMinorHeight() {
-  if (imperialHeight.inches === null) return
-  store.height = (store.height + imperialHeight.inches * 2.54).toFixed(0)
+  invoke('feet_inches_to_centimeters', {
+    feet,
+    inches
+  }).then(message => {
+    store.height = Number(message)
+  })
 }
 </script>
 
@@ -30,14 +33,14 @@ function convertAndStoreImperialMinorHeight() {
           max="1000"
           placeholder="feet"
           v-model="imperialHeight.feet"
-          @change="convertAndStoreImperialMajorHeight"
+          @change="convertAndStoreImperialHeight"
       />
       <input type="number"
              min="0"
              max="11"
              placeholder="inches"
              v-model="imperialHeight.inches"
-             @change="convertAndStoreImperialMinorHeight"
+             @change="convertAndStoreImperialHeight"
       />
     </div>
     <input v-else

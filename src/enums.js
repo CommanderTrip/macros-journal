@@ -9,13 +9,13 @@ export const steps = Object.freeze({
 })
 
 export const ReeFormula = Object.freeze({
-    MifflinStJeor: Symbol(), // The more accepted one
-    HarrisAndBenedict: Symbol()
+    MifflinStJeor: "MifflinStJeor", // The more accepted one
+    HarrisAndBenedict: "HarrisAndBenedict"
 })
 
 export const Gender = Object.freeze({
-    Male: Symbol(),
-    Female: Symbol()
+    Male: "Male",
+    Female: "Female"
 })
 
 export const Units = Object.freeze({

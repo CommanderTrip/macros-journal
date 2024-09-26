@@ -4,6 +4,21 @@ import {Gender, ReeFormula, Units} from "../enums";
 import FormulaWeight from "./FormulaWeight.vue";
 import FormulaHeight from "./UserInfoSections/FormulaHeight.vue";
 import FormulaAge from "./UserInfoSections/FormulaAge.vue";
+import {invoke} from "@tauri-apps/api/tauri";
+
+function callRust() {
+  invoke('calculate_ree', {
+    gender: store.gender,
+    formula: store.reeFormula,
+    weight: Number(store.weight),
+    height: Number(store.height),
+    age: Number(store.age)
+  }).then(
+      message => {
+        store.reeCalories = Number(message)
+      }
+  )
+}
 </script>
 
 <template>
@@ -59,6 +74,9 @@ import FormulaAge from "./UserInfoSections/FormulaAge.vue";
       <em v-else>- 4.330 *</em>
       <FormulaAge/>
     </div>
+
+    <button @click="callRust">Do the thing</button>
+    <p>Your results: {{ store.reeCalories / 1000 }}</p>
   </fieldset>
 </template>name="ree-formula"
 

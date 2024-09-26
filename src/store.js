@@ -12,6 +12,8 @@ export const store = reactive({
     activityLevel: ActivityLevel.LightActivity,
     weightGoal: WeightGoal.LoseWeight,
     reeFormula: ReeFormula.MifflinStJeor,
+
+    reeCalories: null
 })
 
 export const nextStep = (index) => {

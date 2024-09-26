@@ -3,11 +3,16 @@
 import {store} from "../store";
 import {Units} from "../enums";
 import {ref} from "vue";
+import {invoke} from "@tauri-apps/api/tauri";
 
 const imperialWeight = ref(null);
 
 function convertAndStoreImperialWeight() {
-  store.weight = (imperialWeight.value * 0.4535924).toFixed(0);
+  invoke('pounds_to_kilograms', {
+    weight: Number(imperialWeight.value)
+  }).then(message => {
+    store.weight = Number(message)
+  })
 }
 </script>
 
