@@ -1,6 +1,6 @@
 <script setup>
 import {store} from "../store.js";
-import PreferredUnits from "./UserInfoSections/PreferredUnits.vue";
+import PreferredUnits from "./PrefaceDefinitions.vue";
 import PersonalComposition from "./UserInfoSections/PersonalComposition.vue";
 
 
@@ -8,8 +8,6 @@ import PersonalComposition from "./UserInfoSections/PersonalComposition.vue";
 
 <template>
   <div>
-    <h1>Your Measurements</h1>
-    <PreferredUnits/>
     <PersonalComposition/>
   </div>
 </template>

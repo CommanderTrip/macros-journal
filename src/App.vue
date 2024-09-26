@@ -11,6 +11,7 @@ import Calories from "./components/Calories.vue";
 import Macros from "./components/Macros.vue";
 import GettingStarted from "./components/GettingStarted.vue";
 import {steps} from "./enums.js";
+import PrefaceDefinitions from "./components/PrefaceDefinitions.vue";
 
 function resetStore() {
   store.index = steps.GREET
@@ -26,19 +27,21 @@ function resetStore() {
       <p>Index {{ store.index }}</p>
     </div>
 
-    <UserInfoView class="transition-in" v-if="store.index > steps.GREET"/>
-    <REE class="transition-in" v-if="store.index > steps.YOU"/>
-    <TDEE class="transition-in" v-if="store.index > steps.REE"/>
-    <Goal class="transition-in" v-if="store.index > steps.TDEE"/>
-    <Calories class="transition-in" v-if="store.index > steps.GOAL"/>
-    <Macros class="transition-in" v-if="store.index > steps.CALORIES"/>
+    <!-- TODO: Change these names to be more accurate -->
+    <PrefaceDefinitions class="transition-in"/>
+    <REE class="transition-in"/>
 
-    <button @click="nextStep(store.index)">Next</button>
+    <!--    <UserInfoView class="transition-in" v-if="store.index > steps.GREET"/>-->
+    <!--    <TDEE class="transition-in" v-if="store.index > steps.REE"/>-->
+    <!--    <Goal class="transition-in" v-if="store.index > steps.TDEE"/>-->
+    <!--    <Calories class="transition-in" v-if="store.index > steps.GOAL"/>-->
+    <!--    <Macros class="transition-in" v-if="store.index > steps.CALORIES"/>-->
+    <!--    <button @click="nextStep(store.index)">Next</button>-->
   </main>
 
-  <footer>
-    <button @click="resetStore">restart</button>
-  </footer>
+  <!--  <footer>-->
+  <!--    <button @click="resetStore">restart</button>-->
+  <!--  </footer>-->
 </template>
 
 <style>
@@ -58,6 +61,7 @@ main {
   min-height: 100vh;
   flex-direction: column;
   margin-inline: 15%;
+  margin-bottom: 5rem;
 }
 </style>
 
